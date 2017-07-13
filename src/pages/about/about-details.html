@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ item.mgcString }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<!--<ion-content padding>
+    <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon>
+    {{ item.description }}
+</ion-content>-->
+<ion-content>
+    <iframe data-tap-disabled="true" style="height:100%;width:100%;" [src]="item.url | safe"></iframe>
+</ion-content>
+<!--<ion-content padding>
+    scroll="true" overflow-scroll="true"
+    <div class="progress" [hidden]="browser.isLoaded">
+        <div class="progress-inner" id="progress"></div>
+    </div>
+
+    <iframe id="iframe" class="iframe" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"
+        [src]="item.url" (load)="loaded()">
+    </iframe>
+</ion-content>-->

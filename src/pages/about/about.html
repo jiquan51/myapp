@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar (dblclick)="toTop()">
+    <ion-title>有害信息浏览</ion-title>
+    <!--<button *ngIf="showButton" (click)="toTop()">Scroll Top</button>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="listScroll">
+  <div [hidden]="!loading" text-center padding>
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="下拉刷新...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <!--<button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+      <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+      {{ item.title }}
+    </button>-->
+    <ion-card ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+      <ion-card-header>
+        <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+        {{item.mgcString}}
+      </ion-card-header>
+      <ion-card-content>
+        {{item.urltitle}}
+      </ion-card-content>
+      <ion-row>
+        <ion-col center text-center>
+          <!--<ion-icon name="thumbs-up"></ion-icon>-->
+          <div>{{item.sitename}}</div>
+        </ion-col>
+        <ion-col center text-center>
+          <!--<ion-icon name="text"></ion-icon>-->
+          <div>{{item.mgcType | mgcType}}</div>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{item.publishtime}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

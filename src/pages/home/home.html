@@ -1,0 +1,60 @@
+<ion-content overflow-scroll="false">
+    <div style="display:flex;width:625px;">
+        <div class="head">地区</div>
+        <div style="overflow: hidden;white-space: nowrap;width:250px;">
+            <ion-scroll direction="x" scrollbar-x="false" overflow-scroll="false" has-bouncing="false" delegate-handle="headContainerHandle"
+                on-scroll="noScroll()" style="margin-top:0;">
+                <div style="display:flex;width:500px;">
+                    <div class="head">到件量</div>
+                    <div class="head">出仓量</div>
+                    <div class="head">滞留量</div>
+                    <div class="head" style="border-right:0;">未派送量</div>
+                </div>
+            </ion-scroll>
+        </div>
+    </div>
+    <!--<div style="display:flex;width:625px;">-->
+    <ion-scroll id="aaaaa" scrollX="false" scrollY="true" style="height:500px;width:500px;">
+
+        <ion-grid>
+            <ion-row *ngFor="let d of data">
+                <ion-col col-4>
+                    <div>
+                        {{d.zoneName}}
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div>
+                        {{d.arriveTickets}}
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div>
+                        {{d.moniStayCnt}}
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
+    <!--<div style="overflow: hidden;white-space: nowrap;width:250px;"> 
+                <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" overflow-scroll="false" has-bouncing="false" on-scroll="scrollRightHorizon()" delegate-handle="rightContainerHandle" style="height:{{h}}px;">
+                    <div style="width:500px;"> 
+                        <div ng-repeat="d in data" style="display:flex;">
+                            <div class="head">
+                                {{d.arriveTickets}}
+                            </div> 
+                            <div class="head">
+                                {{d.moniOutCnt}}
+                            </div>
+                            <div class="head">
+                                {{d.moniStayCnt}}
+                            </div>
+                            <div class="head" style="border-right:0;">
+                                {{d.moniUndeliveryCnt}}
+                            </div>
+                        </div>
+                    </div>
+                </ion-scroll> 
+            </div>-->
+    <!--</div>-->
+</ion-content>
